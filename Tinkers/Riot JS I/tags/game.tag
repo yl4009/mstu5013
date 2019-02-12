@@ -10,6 +10,7 @@
 				<div show={ menuState === "intro"} class="text-center">
 					<p><strong>{ yearsSince } years</strong> since the end of fascism. Maybe.</p>
 					<button class="btn btn-light" onclick={ startNewGame }>New Game</button>
+					<something></something>
 				</div>
 
 				<!-- GAME TYPE -->
@@ -105,7 +106,7 @@
   <script>
     // JAVASCRIPT
 		let tag = this;
-
+    console.log(this);
 		const endWWII = new Date('September 02, 1945');
 		const today = new Date();
 
