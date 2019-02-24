@@ -94,7 +94,7 @@
 
 			<!-- MAIN CONTENT: START -->
 			<div id="main" class="col-9">
-				
+
 				<!-- REVEAL TAG -->
 				<reveal if={ menuState == "partyReveal" } players={ players }></reveal>
 
@@ -180,6 +180,7 @@
 			let roles = [];
 			for (key in this.playerTypes) {
 				let count = this.playerTypes[key];
+				console.log(playerTypes[key]);
 				for (let i=0; i < count; i++) {
 					roles.push(key);
 				}
