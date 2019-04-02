@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TODO LIST</title>
+		<link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body>
+
+    <!-- MOUNT POINT -->
+    <app></app>
+
+    <!-- TAGS -->
+    <script src="./tags/app.tag" type="riot/tag"></script>
+
+    <!-- LOAD Riot, Firebase -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+
+  <script>
+// Initialize Firebase
+
+  var config = {
+      apiKey: "AIzaSyCQMKDIwuInCTIrx_bVrB3PGC5cBfm-20E",
+      authDomain: "mstu5013-78e98.firebaseapp.com",
+      databaseURL: "https://mstu5013-78e98.firebaseio.com",
+      projectId: "mstu5013-78e98",
+      storageBucket: "mstu5013-78e98.appspot.com",
+      messagingSenderId: "880966426703"
+    };
+    firebase.initializeApp(config);
+
+    let database = firebase.firestore();
+
+    let todoItems = [];
+
+    database.collection('todos').get().then(snapshot => {
+
+      snapshot.forEach(doc => {
+        let docData = doc.data();
+        todoItems.push(docData);
+      });
+      riot.mount('app', {
+        title: 'I want to behave!',
+        items: todoItems
+        // items: [
+        //   { title: 'Avoid excessive caffeine', done: true },
+        //   { title: 'Hidden item',  hidden: true },
+        //   { title: 'Be less provocative'  },
+        //   { title: 'Be nice to people' }
+        // ]
+      });
+          console.log(todoItems);
+        });
+
+      // INITIALIZE RIOT
+
+
+    </script>
+
+  </body>
+</html>
